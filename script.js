@@ -70,3 +70,19 @@ function updateScores() {
     scoreDiv.innerHTML = `<p>Human: ${humanScore} | Computer: ${computerScore}</p>`;
   }
 }
+
+function announceWinner(winner) {
+  const winnerMessage = document.createElement("h2");
+  winnerMessage.textContent = winner === "human" ? "Congratulations! You win the game!" : "Game over! The computer wins!";
+  resultsDiv.appendChild(winnerMessage);
+
+  // Reset game
+  humanScore = 0;
+  computerScore = 0;
+  updateScores();
+
+  // Clear messages after reset
+  setTimeout(() => {
+    resultsDiv.innerHTML = "";
+  }, 3000);
+}
