@@ -25,32 +25,8 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-function playGame() {
-  let humanScore = 0;
-  let computerScore = 0;
-
-  const humanSelection = getHumanChoice();
-  const computerSelection = getComputerChoice();
-  const roundWinner = playRound(humanSelection, computerSelection);
-
-  if (roundWinner === "human") {
-    humanScore++;
-  } else if (roundWinner === "computer") {
-    computerScore++;
-  }
-
-  displayMessage(
-    `Round Winner: ${roundWinner}\nHuman Score: ${humanScore}\nComputer Score: ${computerScore}`
-  );
-
-  if (humanScore > computerScore) {
-    displayMessage("You win the game!");
-  } else if (humanScore < computerScore) {
-    displayMessage("You lose the game!");
-  } else {
-    displayMessage("It's a tie!");
-  }
-}
+let humanScore = 0;
+let computerScore = 0;
 
 function handleChoice(humanChoice) {
   const computerChoice = getComputerChoice();
@@ -60,6 +36,14 @@ function handleChoice(humanChoice) {
     humanScore++;
   } else if (roundWinner === "computer") {
     computerScore++;
+  }
+
+  updateScores();
+
+  if (humanScore === 5) {
+    announceWinner("human");
+  } else if (computerScore === 5) {
+    announceWinner("computer");
   }
 }
 
