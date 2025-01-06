@@ -8,8 +8,18 @@ const modal = document.querySelector("#gameOverModal");
 const winnerMessage = document.querySelector("#winnerMessage");
 const restartButton = document.querySelector("#restartButton");
 
-function displayMessage(message) {
+function displayMessage(message, result) {
   messageDiv.textContent = message;
+
+  messageDiv.classList.remove("win", "lose", "tie");
+
+  if (result === "human") {
+    messageDiv.classList.add("win");
+  } else if (result === "computer") {
+    messageDiv.classList.add("lose");
+  } else if (result === "tie") {
+    messageDiv.classList.add("tie");
+  }
 }
 
 function updateScores() {
@@ -17,7 +27,10 @@ function updateScores() {
 }
 
 function announceWinner(winner) {
-  winnerMessage.textContent = winner === "human" ? "Congratulations! You win the game!" : "Game over! The computer wins!";
+  winnerMessage.textContent =
+    winner === "human"
+      ? "Congratulations! You win the game!"
+      : "Game over! The computer wins!";
   modal.classList.add("active"); // Show modal
   gameOver = true;
 }
@@ -38,21 +51,27 @@ function getComputerChoice() {
 
 function playRound(humanChoice, computerChoice) {
   if (humanChoice === computerChoice) {
-    displayMessage(`It's a tie! Both chose ${humanChoice}.`);
+    displayMessage(`It's a tie! Both chose ${humanChoice}.`, "tie");
     return "tie";
   }
 
   const winningCombinations = {
     ROCK: "SCISSORS",
     PAPER: "ROCK",
-    SCISSORS: "PAPER",
+    SCISSORS: "PAPER"
   };
 
   if (winningCombinations[humanChoice] === computerChoice) {
-    displayMessage(`You win this round! ${humanChoice} beats ${computerChoice}.`);
+    displayMessage(
+      `You win this round! ${humanChoice} beats ${computerChoice}.`,
+      "human"
+    );
     return "human";
   } else {
-    displayMessage(`You lose this round! ${computerChoice} beats ${humanChoice}.`);
+    displayMessage(
+      `You lose this round! ${computerChoice} beats ${humanChoice}.`,
+      "computer"
+    );
     return "computer";
   }
 }
@@ -78,8 +97,14 @@ function handleChoice(humanChoice) {
   }
 }
 
-document.querySelector("#rock").addEventListener("click", () => handleChoice("ROCK"));
-document.querySelector("#paper").addEventListener("click", () => handleChoice("PAPER"));
-document.querySelector("#scissors").addEventListener("click", () => handleChoice("SCISSORS"));
+document
+  .querySelector("#rock")
+  .addEventListener("click", () => handleChoice("ROCK"));
+document
+  .querySelector("#paper")
+  .addEventListener("click", () => handleChoice("PAPER"));
+document
+  .querySelector("#scissors")
+  .addEventListener("click", () => handleChoice("SCISSORS"));
 
 restartButton.addEventListener("click", resetGame);
