@@ -67,4 +67,26 @@ function playGame() {
   }
 }
 
-playGame();
+const rock = document.querySelector("#rock");
+rock.addEventListener("click", () => {
+  const humanSelection = "ROCK";
+  const computerSelection = getComputerChoice();
+  const roundWinner = playRound(humanSelection, computerSelection);
+  console.log(roundWinner);
+});
+
+const paper = document.querySelector("#paper");
+paper.addEventListener("click", () => {
+  const humanSelection = "PAPER";
+  const computerSelection = getComputerChoice();
+  const roundWinner = playRound(humanSelection, computerSelection);
+  console.log(roundWinner);
+});
+
+const scissors = document.querySelector("#scissors");
+scissors.addEventListener("click", () => {
+  const humanSelection = "SCISSORS";
+  const computerSelection = getComputerChoice();
+  const roundWinner = playRound(humanSelection, computerSelection);
+  console.log(roundWinner);
+});
