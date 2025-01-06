@@ -98,3 +98,15 @@ function displayMessage(message) {
   messageDiv.textContent = message;
   resultsDiv.appendChild(messageDiv);
 }
+
+function updateScores() {
+  const scoreDiv = document.querySelector("#score");
+  if (!scoreDiv) {
+    const newScoreDiv = document.createElement("div");
+    newScoreDiv.id = "score";
+    newScoreDiv.innerHTML = `<p>Human: ${humanScore} | Computer: ${computerScore}</p>`;
+    resultsDiv.appendChild(newScoreDiv);
+  } else {
+    scoreDiv.innerHTML = `<p>Human: ${humanScore} | Computer: ${computerScore}</p>`;
+  }
+}
