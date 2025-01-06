@@ -44,22 +44,19 @@ function playGame() {
   let humanScore = 0;
   let computerScore = 0;
 
-  for (let i = 0; i < 5; i++) {
-    console.log("Round " + (i + 1));
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    const roundWinner = playRound(humanSelection, computerSelection);
+  const humanSelection = getHumanChoice();
+  const computerSelection = getComputerChoice();
+  const roundWinner = playRound(humanSelection, computerSelection);
 
-    if (roundWinner === "human") {
-      humanScore++;
-    } else if (roundWinner === "computer") {
-      computerScore++;
-    }
-
-    console.log(
-      `Round Winner: ${roundWinner}\nHuman Score: ${humanScore}\nComputer Score: ${computerScore}`
-    );
+  if (roundWinner === "human") {
+    humanScore++;
+  } else if (roundWinner === "computer") {
+    computerScore++;
   }
+
+  console.log(
+    `Round Winner: ${roundWinner}\nHuman Score: ${humanScore}\nComputer Score: ${computerScore}`
+  );
 
   if (humanScore > computerScore) {
     console.log("You win the game!");
