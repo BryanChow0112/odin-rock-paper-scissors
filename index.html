@@ -4,27 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="script.js" defer></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
     <title>Rock Paper Scissors</title>
   </head>
   <body>
     <div class="container">
-      <h1>Rock Paper Scissors Game</h1>
-      <p>
-        Open your browser console to play the game. Follow the prompts in the
-        console to make your choices.
-      </p>
-      <p>
-        Press F12 or right-click and select "Inspect" to open the developer
-        tools, then navigate to the "Console" tab.
-      </p>
+      <h1>Rock Paper Scissors</h1>
+      <p class="subtitle">First to score 5 points wins the game!!</p>
 
-      <button id="rock">Rock</button>
-      <button id="paper">Paper</button>
-      <button id="scissors">Scissors</button>
+      <!-- Results Section -->
+      <div id="results">
+        <p id="score">Human: 0 | Computer: 0</p>
+        <p id="message"></p>
+      </div>
 
-      <div id="results"></div>
-      <div id="score"></div>
+      <!-- Buttons Section -->
+      <div class="buttons">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+      </div>
     </div>
+
+    <!-- Game Over Modal -->
+    <div id="gameOverModal">
+      <div class="modal-content">
+        <h2 id="winnerMessage"></h2>
+        <button id="restartButton">Restart Game</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>
+        Copyright ©
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        Bryan Chow Wei Qian
+      </p>
+      <a href="https://github.com/BryanChow0112" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+    </footer>
   </body>
 </html>
