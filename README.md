@@ -2,13 +2,7 @@
 
 This is a beginner-friendly JavaScript project designed to create a classic Rock Paper Scissors game played entirely in the browser console. This project focuses on building fundamental JavaScript skills while learning about game logic and user interaction via prompts and alerts.
 
-
-## Usage/Examples
-
-To play the game, follow these steps:
-1. Open the game page in your browser by clicking [here](https://bryanchow0112.github.io/odin-rock-paper-scissors/).
-2. Open your browser console (Press F12 or right-click and select "Inspect" to open the developer tools, then navigate to the "Console" tab).
-3. Follow the prompts in the console to make your choices and see the results.
+[Live Demo](https://bryanchow0112.github.io/odin-rock-paper-scissors/) :point_left:
 
 
 ## Badges
