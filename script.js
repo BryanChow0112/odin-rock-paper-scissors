@@ -90,3 +90,11 @@ scissors.addEventListener("click", () => {
   const roundWinner = playRound(humanSelection, computerSelection);
   console.log(roundWinner);
 });
+
+const resultsDiv = document.querySelector("#results");
+
+function displayMessage(message) {
+  const messageDiv = document.createElement("p");
+  messageDiv.textContent = message;
+  resultsDiv.appendChild(messageDiv);
+}
