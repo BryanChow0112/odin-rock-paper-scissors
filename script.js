@@ -4,21 +4,6 @@ function getComputerChoice() {
   return choices[randomNumber];
 }
 
-function getHumanChoice() {
-  let humanChoice = prompt(
-    "Please choose rock, paper, or scissors"
-  ).toUpperCase();
-
-  while (!["ROCK", "PAPER", "SCISSORS"].includes(humanChoice)) {
-    console.log("Invalid choice, please choose again.");
-    humanChoice = prompt(
-      "Please choose rock, paper, or scissors"
-    ).toUpperCase();
-  }
-
-  return humanChoice;
-}
-
 function playRound(humanChoice, computerChoice) {
   if (humanChoice === computerChoice) {
     displayMessage(`It's a tie! Both chose ${humanChoice}.`);
@@ -67,29 +52,20 @@ function playGame() {
   }
 }
 
-const rock = document.querySelector("#rock");
-rock.addEventListener("click", () => {
-  const humanSelection = "ROCK";
-  const computerSelection = getComputerChoice();
-  const roundWinner = playRound(humanSelection, computerSelection);
-  displayMessage(roundWinner);
-});
+function handleChoice(humanChoice) {
+  const computerChoice = getComputerChoice();
+  const roundWinner = playRound(humanChoice, computerChoice);
 
-const paper = document.querySelector("#paper");
-paper.addEventListener("click", () => {
-  const humanSelection = "PAPER";
-  const computerSelection = getComputerChoice();
-  const roundWinner = playRound(humanSelection, computerSelection);
-  displayMessage(roundWinner);
-});
+  if (roundWinner === "human") {
+    humanScore++;
+  } else if (roundWinner === "computer") {
+    computerScore++;
+  }
+}
 
-const scissors = document.querySelector("#scissors");
-scissors.addEventListener("click", () => {
-  const humanSelection = "SCISSORS";
-  const computerSelection = getComputerChoice();
-  const roundWinner = playRound(humanSelection, computerSelection);
-  displayMessage(roundWinner);
-});
+document.querySelector("#rock").addEventListener("click", () => handleChoice("ROCK"));
+document.querySelector("#paper").addEventListener("click", () => handleChoice("PAPER"));
+document.querySelector("#scissors").addEventListener("click", () => handleChoice("SCISSORS"));
 
 const resultsDiv = document.querySelector("#results");
 
