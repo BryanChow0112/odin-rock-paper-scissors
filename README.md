@@ -1,6 +1,6 @@
- # Odin Rock Paper Scissors
+ # Rock Paper Scissors
 
-This is a beginner-friendly JavaScript project designed to create a classic Rock Paper Scissors game played entirely in the browser console. This project focuses on building fundamental JavaScript skills while learning about game logic and user interaction via prompts and alerts.
+This is a simple JavaScript project designed to create a classic Rock Paper Scissors game played entirely in the browser console. This project focuses on building fundamental JavaScript skills while learning about game logic and user interaction via prompts and alerts.
 
 [Live Demo](https://bryanchow0112.github.io/rock-paper-scissors/) :point_left:
 
